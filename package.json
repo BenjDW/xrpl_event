@@ -1,0 +1,17 @@
+{
+  "name": "xrpl-event",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "tsx index.ts"
+  },
+  "dependencies": {
+    "node": "^25.4.0",
+    "ts": "^0.2.2",
+    "xrpl": "^4.5.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}
