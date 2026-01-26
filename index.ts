@@ -1,6 +1,7 @@
 import xrpl  from "xrpl"
 import { createToken } from "./createToken";
-import { convertStringToHexPadded } from "./utils";
+import { createAMM } from "./createAMM";
+import { convertStringToHexPadded, enableRippling } from "./utils";
 
 const client = new xrpl.Client("wss://s.altnet.rippletest.net:51233")
 
@@ -19,22 +20,32 @@ const main = async () => {
 //   console.log('lets fund 2 accounts...')
 //   const { wallet: wallet1, balance: balance1 } = await client.fundWallet();
 //   const { wallet: wallet2, balance: balance2 } = await client.fundWallet();
-    // create a token
-  await createToken({ 
-    issuer, 
-    receiver, 
-    client, 
-    tokenCode: convertStringToHexPadded(tokenCode)
-    });
 
-  console.log('wallet1', issuer)
-  console.log('wallet2', receiver)
+await enableRippling({ wallet: issuer, client });
 
-  console.log({ 
-    'balance1': await 
-    client.getBalances(issuer.classicAddress), 
-    'balance2': await 
-    client.getBalances(receiver.classicAddress), 
+// create a token
+  // await createToken({ 
+  //   issuer, 
+  //   receiver, 
+  //   client, 
+  //   tokenCode: convertStringToHexPadded(tokenCode)
+  //   });
+
+  // console.log('wallet1', issuer)
+  // console.log('wallet2', receiver)
+
+  // console.log({ 
+  //   'balance1': await 
+  //   client.getBalances(issuer.classicAddress), 
+  //   'balance2': await 
+  //   client.getBalances(receiver.classicAddress), 
+  // });
+   // create AMM
+  await createAMM({
+    issuer,
+    receiver,
+    client,
+    tokenCode: convertStringToHexPadded(tokenCode),
   });
 
 
