@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "create": "file:.5.5",
+    "xrpl": "^4.5.0"
+  }
+}
