@@ -128,6 +128,8 @@ export function encryptMessage(
 
   async function main(){
     // Recipient's Ed25519 public key (who we are sending the secret message to).
+    // this is the public key of the wallet that will receive the message you can find it in a tx of the receiver (SigningPubKey:).
+    // example: https://testnet.xrpl.org/transactions/DDE12A739912D317FB43418C16D8DAC2DE6200B21BEF05B978FD286AF55FF307/raw
     const recipientPublicKey = "ED8089150E9458FEDC81E231839DE44CAFE0456006AE8E821DAC5C0CDE0F7094C4";
     // Our own wallet derived from the seed – this is the "sender".
     const myWallet = Wallet.fromSeed("sEd7XeHtrLNeqsCi3s6GydNckMmUC32");
